@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hussainya.app",
+      "sha256_cert_fingerprints": [
+        "EB:14:69:1C:62:BE:FD:7F:2E:F1:DD:5C:CC:BB:94:36:25:72:AC:8B:E7:5D:67:B9:81:67:84:4A:A4:6C:28:0C"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hussainya.app.dev",
+      "sha256_cert_fingerprints": [
+        "E8:F6:59:DC:67:DC:47:1E:04:86:D8:BC:92:E8:DF:8B:CA:A9:B6:C7:48:97:40:2C:55:30:00:6D:36:7E:D8:31"
+      ]
+    }
+  }
+]

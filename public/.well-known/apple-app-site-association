@@ -1,0 +1,38 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TEAMID.com.hussainya.app"],
+        "components": [
+          {
+            "/": "/centers/*",
+            "comment": "Centre detail screen"
+          },
+          {
+            "/": "/programs/*",
+            "comment": "Program detail screen"
+          },
+          {
+            "/": "/events/*/invite/*",
+            "comment": "Accept-invite flow with eventId + token"
+          },
+          {
+            "/": "/tasbih"
+          },
+          {
+            "/": "/qadha"
+          },
+          {
+            "/": "/khums"
+          },
+          {
+            "/": "/qibla"
+          },
+          {
+            "/": "/calendar"
+          }
+        ]
+      }
+    ]
+  }
+}
