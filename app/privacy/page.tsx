@@ -5,7 +5,7 @@ import { LegalSection, LegalList, LegalLink } from "@/components/legal-section";
 export const metadata: Metadata = {
   title: "Privacy Policy, Hussainya",
   description:
-    "How Hussainya collects, uses, and protects personal information for Melbourne's Shia Muslim community, in line with the Australian Privacy Principles.",
+    "How Hussainya collects, uses, and protects personal information for the Shia Muslim community, in line with the Australian Privacy Principles.",
 };
 
 const LAST_UPDATED = "22 May 2026";
@@ -35,9 +35,9 @@ export default function PrivacyPage() {
           </div>
           <div className="lg:col-span-9 text-[var(--text)] leading-relaxed">
             Hussainya (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) is an independent
-            platform connecting Melbourne&apos;s Shia Muslim community to Islamic centres,
-            events, prayer times, and ibadah tools. We are bound by the Australian Privacy
-            Principles (&ldquo;APPs&rdquo;) in Schedule 1 of the{" "}
+            platform connecting the Shia Muslim community to Islamic centres, programs, prayer
+            times, and ibadah tools. We are bound by the Australian Privacy Principles
+            (&ldquo;APPs&rdquo;) in Schedule 1 of the{" "}
             <em className="font-[var(--font-lora)]">Privacy Act 1988 (Cth)</em>. This policy
             describes how we collect, hold, use, disclose, secure, and let you access and
             correct your personal information.
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
             sensitive information under the Privacy Act
           </strong>
           . By creating a Hussainya account, favouriting Shia Islamic centres, RSVPing to
-          religious events, or using ibadah tools, you may be disclosing religious
+          religious programs, or using ibadah tools, you may be disclosing religious
           affiliation. By using the service you{" "}
           <strong className="text-[var(--text)]">consent</strong> to us collecting and
           handling that information for the purposes set out in this policy. You can withdraw
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
       <LegalSection n="II" title="Anonymity & pseudonymity">
         <p className="text-[var(--subtext)]">
           You can browse public information in Hussainya, such as centre listings, public
-          events, and prayer times, without creating an account. Where features require an
+          programs, and prayer times, without creating an account. Where features require an
           account (favouriting, RSVPs, ibadah tracking, centre management, push
           notifications), we need at minimum an email address so we can authenticate you and
           contact you about your account. You may use a pseudonym for any display name, but a
@@ -84,12 +84,12 @@ export default function PrivacyPage() {
             </>,
             <>
               <strong className="text-[var(--text)]">Profile activity:</strong> favourited
-              centres, RSVP&apos;d events, ibadah tracking entries, and notes you create
+              centres, RSVP&apos;d programs, ibadah tracking entries, and notes you create
               inside the app.
             </>,
             <>
               <strong className="text-[var(--text)]">Centre manager data:</strong> if you
-              manage a centre, we record your role, the centre you manage, and the events,
+              manage a centre, we record your role, the centre you manage, and the programs,
               announcements, and bookings you publish.
             </>,
             <>
@@ -134,8 +134,8 @@ export default function PrivacyPage() {
         <LegalList
           items={[
             "Authenticating you and keeping your account secure.",
-            "Showing centres, events, and prayer times relevant to you.",
-            "Delivering push notifications you have opted into, such as event reminders and jamaat times.",
+            "Showing centres, programs, and prayer times relevant to you.",
+            "Delivering push notifications you have opted into, such as program reminders and jamaat times.",
             "Processing and renewing centre subscriptions through Stripe.",
             "Generating answers from Islamic source material via our AI features.",
             "Investigating abuse, debugging errors, and improving the app.",
@@ -153,7 +153,7 @@ export default function PrivacyPage() {
         <p className="text-[var(--subtext)]">
           We do not sell your information and we do not run third-party advertising. We may
           occasionally send service-related communications (account, security, or billing
-          notices) and, where you have opted in, push notifications about events at centres
+          notices) and, where you have opted in, push notifications about programs at centres
           you follow. Every marketing communication includes a simple opt-out, and you can
           turn off push notifications at any time from your device settings.
         </p>
@@ -225,7 +225,7 @@ export default function PrivacyPage() {
       <LegalSection n="VIII" title="Centre managers and public content">
         <p className="text-[var(--subtext)]">
           Information that centre managers publish, such as centre name, address, contact
-          details, events, programs, and announcements, is intended to be publicly visible
+          details, programs, and announcements, is intended to be publicly visible
           inside Hussainya. Don&apos;t publish personal information about other people
           without their consent.
         </p>

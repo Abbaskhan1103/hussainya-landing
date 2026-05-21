@@ -5,7 +5,7 @@ import { LegalSection, LegalList, LegalLink } from "@/components/legal-section";
 export const metadata: Metadata = {
   title: "Terms & Conditions, Hussainya",
   description:
-    "The terms governing use of Hussainya, the Melbourne Shia Islamic community hub.",
+    "The terms governing use of Hussainya, the Shia Islamic community hub.",
 };
 
 const LAST_UPDATED = "22 May 2026";
@@ -35,10 +35,9 @@ export default function TermsPage() {
           </div>
           <div className="lg:col-span-9 text-[var(--text)] leading-relaxed">
             These terms govern your use of Hussainya (&ldquo;Hussainya&rdquo;,
-            &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), a platform connecting
-            Melbourne&apos;s Shia Muslim community to Islamic centres, events, prayer times,
-            and ibadah tools. By creating an account or using the app, you agree to these
-            terms.
+            &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), a platform connecting the
+            Shia Muslim community to Islamic centres, programs, prayer times, and ibadah tools.
+            By creating an account or using the app, you agree to these terms.
           </div>
         </div>
       </div>
@@ -85,7 +84,7 @@ export default function TermsPage() {
         <LegalList
           items={[
             "You are authorised by the relevant centre to publish information on its behalf.",
-            "Information you publish (events, programs, contact details, announcements) is accurate, lawful, and respectful.",
+            "Information you publish (programs, contact details, announcements) is accurate, lawful, and respectful.",
             "You will keep your centre's information up to date and remove or correct content promptly when needed.",
             "We may remove content or revoke access if a centre's listing is misused or disputed.",
           ]}
@@ -104,10 +103,10 @@ export default function TermsPage() {
         />
       </LegalSection>
 
-      <LegalSection n="VI" title="Events, RSVPs & bookings">
+      <LegalSection n="VI" title="Programs, RSVPs & bookings">
         <p className="text-[var(--subtext)]">
-          Hussainya may show event listings and accept RSVPs or bookings on behalf of
-          centres. The hosting centre is responsible for the event itself, including its
+          Hussainya may show program listings and accept RSVPs or bookings on behalf of
+          centres. The hosting centre is responsible for the program itself, including its
           scheduling, conduct, capacity, safety, and any associated fees or refunds. We are
           not a party to the arrangement between you and the centre.
         </p>
