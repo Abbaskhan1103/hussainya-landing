@@ -22,11 +22,6 @@ export const metadata: Metadata = {
   description:
     "Centres, programs, prayer times, qibla, and the daily rhythm of ibadah. Gathered with intention for the Shia community.",
   metadataBase: new URL("https://hussainya.com"),
-  icons: [
-    { rel: "icon", url: "/hussainya-favicon-light.svg", media: "(prefers-color-scheme: light)" },
-    { rel: "icon", url: "/hussainya-favicon-dark.svg", media: "(prefers-color-scheme: dark)" },
-    { rel: "apple-touch-icon", url: "/hussainya-app-icon.svg" },
-  ],
 };
 
 export const viewport: Viewport = {
