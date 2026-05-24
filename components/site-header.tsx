@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { EightPointStar } from "./ornaments";
 
 const nav = [
+  { href: "/features", label: "Features" },
   { href: "/who-we-are", label: "Who we are" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -39,13 +40,10 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <a
-            href="https://app.hussainya.com"
-            className="hidden md:inline-flex h-10 items-center gap-2 px-5 rounded-full bg-[var(--color-gold)] text-[#070d1f] text-sm font-semibold hover:bg-[var(--color-gold-light)] transition-colors"
-          >
-            Open the App
-            <ArrowUpRight className="size-4" />
-          </a>
+          <span className="hidden md:inline-flex h-10 items-center gap-2 px-4 rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] text-[var(--color-gold)] text-xs font-medium uppercase tracking-[0.18em]">
+            <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
+            Coming soon
+          </span>
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-[var(--subtext)] hover:text-[var(--text)]"
             onClick={() => setOpen((v) => !v)}
@@ -69,13 +67,10 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href="https://app.hussainya.com"
-              className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--color-gold)] text-[#070d1f] font-semibold"
-            >
-              Open the App
-              <ArrowUpRight className="size-4" />
-            </a>
+            <span className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] text-[var(--color-gold)] text-xs font-medium uppercase tracking-[0.18em]">
+              <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
+              Coming soon
+            </span>
           </nav>
         </div>
       )}

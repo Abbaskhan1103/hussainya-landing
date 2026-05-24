@@ -7,6 +7,7 @@ import {
   Apple,
   Smartphone,
   Globe,
+  Clock,
 } from "lucide-react";
 import { Medallion, EightPointStar, HairlineDots } from "@/components/ornaments";
 
@@ -17,7 +18,10 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-10 pt-20 lg:pt-32 pb-24 lg:pb-40 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-8">
-            <div className="eyebrow mb-8 fade-up">§ A companion for the community</div>
+            <div className="eyebrow mb-8 fade-up inline-flex items-center gap-3">
+              <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
+              <span>§ Coming soon &middot; In the final stretch</span>
+            </div>
             <h1 className="font-[var(--font-lora)] text-[clamp(2.5rem,6.5vw,6rem)] leading-[1.02] tracking-[-0.02em] text-[var(--text)] fade-up fade-up-1">
               A digital home
               <br />
@@ -33,17 +37,14 @@ export default function Home() {
               one quiet place that respects the rhythm of your ibadah.
             </p>
             <div className="mt-12 flex flex-wrap items-center gap-5 fade-up fade-up-3">
-              <a
-                href="https://app.hussainya.com"
-                className="inline-flex h-14 items-center gap-3 rounded-full bg-[var(--color-gold)] text-[#070d1f] px-8 text-base font-semibold tracking-wide hover:bg-[var(--color-gold-light)] transition-colors"
-              >
-                Open the App
-                <ArrowUpRight className="size-5" />
-              </a>
+              <div className="inline-flex h-14 items-center gap-3 rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] text-[var(--color-gold)] px-7 text-base font-medium tracking-wide">
+                <Clock className="size-5" strokeWidth={1.5} />
+                Launching soon
+              </div>
               <span className="text-sm text-[var(--subtext)]">
-                Available on{" "}
+                Coming to{" "}
                 <span className="text-[var(--text)] font-medium">iOS</span>,{" "}
-                <span className="text-[var(--text)] font-medium">Android</span>,{" "}
+                <span className="text-[var(--text)] font-medium">Android</span>, and{" "}
                 <span className="text-[var(--text)] font-medium">Web</span>
               </span>
             </div>
@@ -169,40 +170,43 @@ export default function Home() {
       <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-24 lg:pb-32">
         <div className="border-t border-[var(--border)] pt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">
-            <div className="eyebrow mb-6">§ 03 / Get the App</div>
+            <div className="eyebrow mb-6">§ 03 / Arriving soon</div>
             <h2 className="font-[var(--font-lora)] text-5xl md:text-6xl leading-[1.02] tracking-tight text-[var(--text)]">
-              Carry it with you,
+              Soon, on the device
               <br />
-              on the device already in your hand.
+              already in your hand.
             </h2>
+            <p className="mt-8 max-w-xl text-[var(--subtext)] leading-relaxed">
+              The first builds are in the hands of testers. Public release on iOS, Android, and the
+              web follows shortly, inshaAllah.
+            </p>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-1">
             {[
               {
                 eyebrow: "Apple",
                 title: "iOS, App Store",
-                href: "https://apps.apple.com/",
+                status: "Coming soon",
                 Icon: Apple,
               },
               {
                 eyebrow: "Google",
                 title: "Android, Play Store",
-                href: "https://play.google.com/",
+                status: "Coming soon",
                 Icon: Smartphone,
               },
               {
                 eyebrow: "Browser",
                 title: "Web, app.hussainya.com",
-                href: "https://app.hussainya.com",
+                status: "Coming soon",
                 Icon: Globe,
               },
             ].map((row) => {
               const Icon = row.Icon;
               return (
-                <a
+                <div
                   key={row.title}
-                  href={row.href}
-                  className="group flex items-center justify-between border-b border-[var(--border)] py-5 hover:border-[var(--text)] transition-colors"
+                  className="flex items-center justify-between border-b border-[var(--border)] py-5"
                 >
                   <div className="flex items-center gap-5">
                     <Icon className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
@@ -213,8 +217,10 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <ArrowUpRight className="size-6 text-[var(--text)] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </a>
+                  <span className="eyebrow text-[var(--color-gold)] whitespace-nowrap">
+                    {row.status}
+                  </span>
+                </div>
               );
             })}
           </div>

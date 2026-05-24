@@ -28,6 +28,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/features" className="editorial-link hover:text-[var(--text)]">
+                Features
+              </Link>
+            </li>
+            <li>
               <Link href="/who-we-are" className="editorial-link hover:text-[var(--text)]">
                 Who we are
               </Link>
