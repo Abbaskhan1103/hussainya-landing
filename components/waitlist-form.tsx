@@ -22,7 +22,7 @@ export function WaitlistForm({ id, className }: { id: string; className?: string
       >
         <EightPointStar className="size-5 shrink-0 text-[var(--color-gold)]" />
         <p className="font-[var(--font-lora)] italic text-lg leading-snug text-[var(--text)]">
-          You&rsquo;re on the list — we&rsquo;ll write to you when the doors open, inshaAllah.
+          You&rsquo;re on the list. We&rsquo;ll write to you when the doors open, inshaAllah.
         </p>
       </div>
     );
@@ -44,7 +44,7 @@ export function WaitlistForm({ id, className }: { id: string; className?: string
           disabled={pending}
           className="min-w-0 flex-1 bg-transparent py-2 text-base text-[var(--text)] placeholder:text-[var(--subtext)]/70 focus:outline-none disabled:opacity-60"
         />
-        {/* Honeypot — hidden from real users, tempting to bots. */}
+        {/* Honeypot: hidden from real users, tempting to bots. */}
         <input
           type="text"
           name="website"

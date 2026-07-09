@@ -1,4 +1,12 @@
 import { HairlineDots } from "@/components/ornaments";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Who we are",
+  description:
+    "A small team and four working principles: reverence first, verified sources, privacy by default, and free for the community.",
+  path: "/who-we-are",
+});
 
 const principles = [
   {

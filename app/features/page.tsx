@@ -21,12 +21,14 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Medallion, HairlineDots } from "@/components/ornaments";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Features · Hussainya",
+export const metadata = pageMetadata({
+  title: "Features",
   description:
     "A look at what's inside Hussainya: centres, programs, the Hijri calendar, and the daily ibadah tools.",
-};
+  path: "/features",
+});
 
 const centreCapabilities = [
   { Icon: MapPin, title: "Address & directions", body: "Suburb, full address, and one tap to Google Maps." },

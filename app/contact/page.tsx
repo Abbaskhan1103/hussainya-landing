@@ -1,4 +1,12 @@
 import { Mail, Send } from "lucide-react";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Contact",
+  description:
+    "Questions, feedback, or a centre to add? Write to the Hussainya team. We read everything.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

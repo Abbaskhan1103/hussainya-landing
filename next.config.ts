@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
   // works.
   async redirects() {
     return [
+      // Canonical host: nginx proxies www and the apex to the same app with
+      // the Host header intact, so the 301 to the apex happens here. Listed
+      // first so it wins over the path redirects below.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.hussainya.com" }],
+        destination: "https://hussainya.com/:path*",
+        permanent: true,
+      },
       { source: "/auth/callback", destination: `${APP_BASE}/auth/callback`, permanent: false },
       { source: "/centers/:id*", destination: `${APP_BASE}/centers/:id*`, permanent: false },
       { source: "/programs/:id*", destination: `${APP_BASE}/programs/:id*`, permanent: false },

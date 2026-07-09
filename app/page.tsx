@@ -10,6 +10,9 @@ import {
 } from "lucide-react";
 import { Medallion, EightPointStar, HairlineDots } from "@/components/ornaments";
 import { WaitlistForm } from "@/components/waitlist-form";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({ path: "/" });
 
 export default function Home() {
   return (

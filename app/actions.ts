@@ -10,7 +10,7 @@ export type WaitlistState = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // In-process rate limiter. The landing runs as a single pm2 process, so a
-// Map is sufficient — no shared store needed (and none should be added).
+// Map is sufficient; no shared store needed (and none should be added).
 const WINDOW_MS = 60 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const attempts = new Map<string, { count: number; resetAt: number }>();
@@ -45,7 +45,7 @@ export async function joinWaitlist(
   if (email.length < 5 || email.length > 254 || !EMAIL_RE.test(email)) {
     return {
       status: "error",
-      message: "That doesn’t look like an email address — mind checking it?",
+      message: "That doesn’t look like an email address. Mind checking it?",
     };
   }
 
@@ -56,7 +56,7 @@ export async function joinWaitlist(
   if (rateLimited(ip)) {
     return {
       status: "error",
-      message: "Too many attempts from this connection — please try again in an hour.",
+      message: "Too many attempts from this connection. Please try again in an hour.",
     };
   }
 
@@ -66,7 +66,7 @@ export async function joinWaitlist(
     console.error("waitlist: SUPABASE_URL / SUPABASE_ANON_KEY not configured");
     return {
       status: "error",
-      message: "Something went wrong on our side — please try again later.",
+      message: "Something went wrong on our side. Please try again later.",
     };
   }
 
@@ -93,6 +93,6 @@ export async function joinWaitlist(
 
   return {
     status: "error",
-    message: "Something went wrong on our side — please try again later.",
+    message: "Something went wrong on our side. Please try again later.",
   };
 }

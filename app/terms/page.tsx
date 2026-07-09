@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalSection, LegalList, LegalLink } from "@/components/legal-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions, Hussainya",
+export const metadata = pageMetadata({
+  title: "Terms & Conditions",
   description:
     "The terms governing use of Hussainya, the Shia Islamic community hub.",
-};
+  path: "/terms",
+});
 
 const LAST_UPDATED = "22 May 2026";
 const CONTACT_EMAIL = "support@hussainya.com";

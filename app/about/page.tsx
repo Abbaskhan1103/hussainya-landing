@@ -1,4 +1,12 @@
 import { Medallion } from "@/components/ornaments";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "About",
+  description:
+    "Why Hussainya exists and the intention behind it: a quiet companion for Shia life, built in the spirit of khidmah.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

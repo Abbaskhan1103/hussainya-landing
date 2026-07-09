@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalSection, LegalList, LegalLink } from "@/components/legal-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy, Hussainya",
+export const metadata = pageMetadata({
+  title: "Privacy Policy",
   description:
     "How Hussainya collects, uses, and protects personal information for the Shia Muslim community, in line with the Australian Privacy Principles.",
-};
+  path: "/privacy",
+});
 
 const LAST_UPDATED = "22 May 2026";
 const CONTACT_EMAIL = "support@hussainya.com";
