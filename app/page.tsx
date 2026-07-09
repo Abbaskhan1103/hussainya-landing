@@ -7,9 +7,9 @@ import {
   Apple,
   Smartphone,
   Globe,
-  Clock,
 } from "lucide-react";
 import { Medallion, EightPointStar, HairlineDots } from "@/components/ornaments";
+import { WaitlistForm } from "@/components/waitlist-form";
 
 export default function Home() {
   return (
@@ -36,17 +36,15 @@ export default function Home() {
               Centres, programs, prayer times, qibla, the daily aamal. Gathered with intention, in
               one quiet place that respects the rhythm of your ibadah.
             </p>
-            <div className="mt-12 flex flex-wrap items-center gap-5 fade-up fade-up-3">
-              <div className="inline-flex h-14 items-center gap-3 rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] text-[var(--color-gold)] px-7 text-base font-medium tracking-wide">
-                <Clock className="size-5" strokeWidth={1.5} />
-                Launching soon
-              </div>
-              <span className="text-sm text-[var(--subtext)]">
-                Coming to{" "}
+            <div className="mt-12 max-w-xl fade-up fade-up-3">
+              <WaitlistForm id="waitlist-hero" />
+              <p className="text-sm text-[var(--subtext)]">
+                Be the first to know when we open on{" "}
                 <span className="text-[var(--text)] font-medium">iOS</span>,{" "}
                 <span className="text-[var(--text)] font-medium">Android</span>, and{" "}
-                <span className="text-[var(--text)] font-medium">Web</span>
-              </span>
+                <span className="text-[var(--text)] font-medium">Web</span>. No noise, just the
+                launch.
+              </p>
             </div>
           </div>
 
@@ -178,8 +176,10 @@ export default function Home() {
             </h2>
             <p className="mt-8 max-w-xl text-[var(--subtext)] leading-relaxed">
               The first builds are in the hands of testers. Public release on iOS, Android, and the
-              web follows shortly, inshaAllah.
+              web follows shortly, inshaAllah. Leave your email and we&rsquo;ll knock when the
+              doors open.
             </p>
+            <WaitlistForm id="waitlist-cta" className="mt-8 max-w-xl" />
           </div>
           <div className="lg:col-span-5 flex flex-col gap-1">
             {[
