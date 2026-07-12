@@ -6,7 +6,6 @@ import {
   MoonStar,
   Apple,
   Smartphone,
-  Globe,
 } from "lucide-react";
 import { Medallion, EightPointStar, HairlineDots } from "@/components/ornaments";
 import { WaitlistForm } from "@/components/waitlist-form";
@@ -197,12 +196,6 @@ export default function Home() {
                 title: "Android, Play Store",
                 status: "Coming soon",
                 Icon: Smartphone,
-              },
-              {
-                eyebrow: "Browser",
-                title: "Web, app.hussainya.com",
-                status: "Coming soon",
-                Icon: Globe,
               },
             ].map((row) => {
               const Icon = row.Icon;

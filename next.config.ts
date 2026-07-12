@@ -3,19 +3,16 @@ import type { NextConfig } from "next";
 const APP_BASE = "https://app.hussainya.com";
 
 const nextConfig: NextConfig = {
-  // Browser-fallback redirects: when the native apps' deep-link interception
-  // does not fire (no app installed, OS verification not yet done, link
-  // pasted into a desktop browser), forward the user to the equivalent path
-  // on the web app instead of 404-ing on the marketing landing.
-  //
-  // URL fragments (e.g. `#access_token=...` from Supabase OAuth) are
-  // preserved by the browser across redirects, so the auth handoff still
-  // works.
+  // The consumer web app was retired (Hussainya is app-first). The old
+  // browser-fallback redirects that forwarded /centers, /programs, /ibadah/*
+  // etc. to app.hussainya.com are gone with it — those pages no longer exist.
+  // What remains is host canonicalization and the OAuth callback handoff to
+  // the backend (app.hussainya.com keeps /auth/callback). URL fragments (e.g.
+  // `#access_token=...` from Supabase OAuth) are preserved across the redirect.
   async redirects() {
     return [
       // Canonical host: nginx proxies www and the apex to the same app with
-      // the Host header intact, so the 301 to the apex happens here. Listed
-      // first so it wins over the path redirects below.
+      // the Host header intact, so the 301 to the apex happens here.
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.hussainya.com" }],
@@ -23,14 +20,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/auth/callback", destination: `${APP_BASE}/auth/callback`, permanent: false },
-      { source: "/centers/:id*", destination: `${APP_BASE}/centers/:id*`, permanent: false },
-      { source: "/programs/:id*", destination: `${APP_BASE}/programs/:id*`, permanent: false },
-      { source: "/events/:id/invite/:token", destination: `${APP_BASE}/events/:id/invite/:token`, permanent: false },
-      { source: "/tasbih", destination: `${APP_BASE}/ibadah/tasbih`, permanent: false },
-      { source: "/qadha", destination: `${APP_BASE}/ibadah/qadha`, permanent: false },
-      { source: "/khums", destination: `${APP_BASE}/ibadah/khums`, permanent: false },
-      { source: "/qibla", destination: `${APP_BASE}/home/qibla`, permanent: false },
-      { source: "/calendar", destination: `${APP_BASE}/home/calendar`, permanent: false },
     ];
   },
 };
