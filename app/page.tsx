@@ -1,15 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight, MapPin, CalendarHeart, MoonStar } from "lucide-react";
 import {
-  ArrowUpRight,
-  MapPin,
-  CalendarHeart,
-  MoonStar,
-  Apple,
-  Smartphone,
-} from "lucide-react";
-import { Medallion, EightPointStar, HairlineDots } from "@/components/ornaments";
+  Medallion,
+  EightPointStar,
+  HairlineDots,
+  AppleMark,
+  AndroidMark,
+} from "@/components/ornaments";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { pageMetadata } from "@/lib/seo";
+
+const APP_STORE_URL = "https://apps.apple.com/app/id6774542995";
 
 export const metadata = pageMetadata({ path: "/" });
 
@@ -22,7 +24,7 @@ export default function Home() {
           <div className="lg:col-span-8">
             <div className="eyebrow mb-8 fade-up inline-flex items-center gap-3">
               <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
-              <span>§ Coming soon &middot; In the final stretch</span>
+              <span>§ Live on iOS &middot; Android testing open</span>
             </div>
             <h1 className="font-[var(--font-lora)] text-[clamp(2.5rem,6.5vw,6rem)] leading-[1.02] tracking-[-0.02em] text-[var(--text)] fade-up fade-up-1">
               A digital home
@@ -39,13 +41,27 @@ export default function Home() {
               one quiet place that respects the rhythm of your ibadah.
             </p>
             <div className="mt-12 max-w-xl fade-up fade-up-3">
-              <WaitlistForm id="waitlist-hero" />
-              <p className="text-sm text-[var(--subtext)]">
-                Be the first to know when we open on{" "}
-                <span className="text-[var(--text)] font-medium">iOS</span>,{" "}
-                <span className="text-[var(--text)] font-medium">Android</span>, and{" "}
-                <span className="text-[var(--text)] font-medium">Web</span>. No noise, just the
-                launch.
+              <div className="flex flex-wrap items-center gap-4">
+                <a href={APP_STORE_URL} className="inline-flex items-center">
+                  <Image
+                    src="/app-store-badge-black.svg"
+                    alt="Download on the App Store"
+                    width={120}
+                    height={40}
+                    className="h-[52px] w-auto"
+                    priority
+                  />
+                </a>
+                <Link
+                  href="#android-testing"
+                  className="inline-flex items-center gap-1.5 text-sm text-[var(--subtext)] hover:text-[var(--text)] editorial-link"
+                >
+                  Android testing is open
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+              </div>
+              <p className="mt-4 text-sm text-[var(--subtext)]">
+                The web app is next. No noise, just the launch.
               </p>
             </div>
           </div>
@@ -95,19 +111,16 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)] border border-[var(--border)] rounded-2xl overflow-hidden">
           {[
             {
-              n: "I",
               icon: MapPin,
               title: "Centres",
               body: "Find hussainiyas and Islamic centres near you. Addresses, programs, contact, and how to be there.",
             },
             {
-              n: "II",
               icon: CalendarHeart,
               title: "Programs",
               body: "Live and upcoming majalis, classes, and gatherings. Saved, shared, and added to your calendar.",
             },
             {
-              n: "III",
               icon: MoonStar,
               title: "Ibadah",
               body: "Prayer times, qibla, daily aamal, tasbih, khums calculator, and a thoughtful guide to the seerah.",
@@ -116,15 +129,10 @@ export default function Home() {
             const Icon = p.icon;
             return (
               <div
-                key={p.n}
+                key={p.title}
                 className="bg-[var(--background)] p-10 lg:p-12 flex flex-col gap-8 min-h-[340px]"
               >
-                <div className="flex items-start justify-between">
-                  <span className="font-[var(--font-lora)] text-7xl text-[var(--color-gold)] opacity-30 leading-none">
-                    {p.n}
-                  </span>
-                  <Icon className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
-                </div>
+                <Icon className="size-8 text-[var(--color-gold)]" strokeWidth={1.25} />
                 <div>
                   <h3 className="font-[var(--font-lora)] text-3xl text-[var(--text)] mb-3">
                     {p.title}
@@ -167,58 +175,62 @@ export default function Home() {
       </section>
 
       {/* App CTA strip */}
-      <section className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-24 lg:pb-32">
-        <div className="border-t border-[var(--border)] pt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+      <section id="android-testing" className="mx-auto max-w-[1280px] px-6 lg:px-10 pb-24 lg:pb-32">
+        <div className="border-t border-[var(--border)] pt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-7">
-            <div className="eyebrow mb-6">§ 03 / Arriving soon</div>
+            <div className="eyebrow mb-6">§ 03 / Android testing</div>
             <h2 className="font-[var(--font-lora)] text-5xl md:text-6xl leading-[1.02] tracking-tight text-[var(--text)]">
-              Soon, on the device
+              Android testing
               <br />
-              already in your hand.
+              is open now.
             </h2>
             <p className="mt-8 max-w-xl text-[var(--subtext)] leading-relaxed">
-              The first builds are in the hands of testers. Public release on iOS, Android, and the
-              web follows shortly, inshaAllah. Leave your email and we&rsquo;ll knock when the
-              doors open.
+              Leave your email and we&rsquo;ll send you the join link the same day. The web app
+              follows shortly after, inshaAllah &mdash; already on iPhone? Get it from the App
+              Store above.
             </p>
-            <WaitlistForm id="waitlist-cta" className="mt-8 max-w-xl" />
+            <WaitlistForm
+              id="android-testing-form"
+              className="mt-8 max-w-xl"
+              source="android_testing"
+              buttonLabel="Send me the join link"
+              buttonLabelShort="Join"
+              successMessage="You're on the Android testing list. We'll email you the join link shortly."
+            />
           </div>
           <div className="lg:col-span-5 flex flex-col gap-1">
-            {[
-              {
-                eyebrow: "Apple",
-                title: "iOS, App Store",
-                status: "Coming soon",
-                Icon: Apple,
-              },
-              {
-                eyebrow: "Google",
-                title: "Android, Play Store",
-                status: "Coming soon",
-                Icon: Smartphone,
-              },
-            ].map((row) => {
-              const Icon = row.Icon;
-              return (
-                <div
-                  key={row.title}
-                  className="flex items-center justify-between border-b border-[var(--border)] py-5"
-                >
-                  <div className="flex items-center gap-5">
-                    <Icon className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
-                    <div>
-                      <div className="eyebrow text-[var(--subtext)]">{row.eyebrow}</div>
-                      <div className="font-[var(--font-lora)] text-2xl text-[var(--text)] mt-1">
-                        {row.title}
-                      </div>
-                    </div>
+            <div className="flex items-center justify-between border-b border-[var(--border)] py-5">
+              <div className="flex items-center gap-5">
+                <AppleMark className="size-6 text-[var(--color-gold)]" />
+                <div>
+                  <div className="eyebrow text-[var(--subtext)]">Apple</div>
+                  <div className="font-[var(--font-lora)] text-2xl text-[var(--text)] mt-1">
+                    iOS, App Store
                   </div>
-                  <span className="eyebrow text-[var(--color-gold)] whitespace-nowrap">
-                    {row.status}
-                  </span>
                 </div>
-              );
-            })}
+              </div>
+              <a
+                href={APP_STORE_URL}
+                className="eyebrow text-[var(--color-gold)] hover:text-[var(--color-gold-light)] whitespace-nowrap"
+              >
+                Live now
+              </a>
+            </div>
+
+            <div className="flex items-center justify-between border-b border-[var(--border)] py-5">
+              <div className="flex items-center gap-5">
+                <AndroidMark className="size-6 text-[var(--color-gold)]" />
+                <div>
+                  <div className="eyebrow text-[var(--subtext)]">Google</div>
+                  <div className="font-[var(--font-lora)] text-2xl text-[var(--text)] mt-1">
+                    Android, Play Store
+                  </div>
+                </div>
+              </div>
+              <span className="eyebrow text-[var(--color-gold)] whitespace-nowrap">
+                In testing
+              </span>
+            </div>
           </div>
         </div>
       </section>

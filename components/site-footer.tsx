@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Apple, Smartphone } from "lucide-react";
-import { EightPointStar } from "./ornaments";
+import { AppleMark, AndroidMark, EightPointStar } from "./ornaments";
 
 export function SiteFooter() {
   return (
@@ -54,13 +53,13 @@ export function SiteFooter() {
           <div className="eyebrow mb-4">Get the app</div>
           <ul className="space-y-3 text-sm text-[var(--subtext)]">
             <li className="flex items-center gap-3">
-              <Apple className="size-4 text-[var(--color-gold)]" />
+              <AppleMark className="size-3.5 text-[var(--color-gold)]" />
               <a href="https://apps.apple.com/app/id6774542995" className="editorial-link hover:text-[var(--text)]">
                 iOS, App Store
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Smartphone className="size-4 text-[var(--color-gold)]" />
+              <AndroidMark className="size-3.5 text-[var(--color-gold)]" />
               <a href="https://play.google.com/store/apps/details?id=com.hussainya.app" className="editorial-link hover:text-[var(--text)]">
                 Android, Google Play
               </a>

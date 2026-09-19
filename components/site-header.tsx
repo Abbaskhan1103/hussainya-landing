@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { EightPointStar } from "./ornaments";
+
+const APP_STORE_URL = "https://apps.apple.com/app/id6774542995";
 
 const nav = [
   { href: "/features", label: "Features" },
@@ -40,10 +43,15 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <span className="hidden md:inline-flex h-10 items-center gap-2 px-4 rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] text-[var(--color-gold)] text-xs font-medium uppercase tracking-[0.18em]">
-            <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
-            Coming soon
-          </span>
+          <a href={APP_STORE_URL} className="hidden md:inline-flex items-center">
+            <Image
+              src="/app-store-badge-black.svg"
+              alt="Download on the App Store"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
+          </a>
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-[var(--subtext)] hover:text-[var(--text)]"
             onClick={() => setOpen((v) => !v)}
@@ -67,10 +75,19 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <span className="mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] text-[var(--color-gold)] text-xs font-medium uppercase tracking-[0.18em]">
-              <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
-              Coming soon
-            </span>
+            <a
+              href={APP_STORE_URL}
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center"
+            >
+              <Image
+                src="/app-store-badge-black.svg"
+                alt="Download on the App Store"
+                width={120}
+                height={40}
+                className="h-12 w-auto"
+              />
+            </a>
           </nav>
         </div>
       )}

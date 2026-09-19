@@ -8,7 +8,21 @@ import { cn } from "@/lib/utils";
 
 const initialState: WaitlistState = { status: "idle" };
 
-export function WaitlistForm({ id, className }: { id: string; className?: string }) {
+export function WaitlistForm({
+  id,
+  className,
+  source = "landing",
+  buttonLabel = "Join the waitlist",
+  buttonLabelShort = "Join",
+  successMessage = "You’re on the list. We’ll write to you when the doors open, inshaAllah.",
+}: {
+  id: string;
+  className?: string;
+  source?: string;
+  buttonLabel?: string;
+  buttonLabelShort?: string;
+  successMessage?: string;
+}) {
   const [state, formAction, pending] = useActionState(joinWaitlist, initialState);
 
   if (state.status === "success") {
@@ -22,7 +36,7 @@ export function WaitlistForm({ id, className }: { id: string; className?: string
       >
         <EightPointStar className="size-5 shrink-0 text-[var(--color-gold)]" />
         <p className="font-[var(--font-lora)] italic text-lg leading-snug text-[var(--text)]">
-          You&rsquo;re on the list. We&rsquo;ll write to you when the doors open, inshaAllah.
+          {successMessage}
         </p>
       </div>
     );
@@ -44,6 +58,7 @@ export function WaitlistForm({ id, className }: { id: string; className?: string
           disabled={pending}
           className="min-w-0 flex-1 bg-transparent py-2 text-base text-[var(--text)] placeholder:text-[var(--subtext)]/70 focus:outline-none disabled:opacity-60"
         />
+        <input type="hidden" name="source" value={source} />
         {/* Honeypot: hidden from real users, tempting to bots. */}
         <input
           type="text"
@@ -62,8 +77,8 @@ export function WaitlistForm({ id, className }: { id: string; className?: string
             <LoaderCircle className="size-4 animate-spin" strokeWidth={2} />
           ) : (
             <>
-              <span className="hidden sm:inline">Join the waitlist</span>
-              <span className="sm:hidden">Join</span>
+              <span className="hidden sm:inline">{buttonLabel}</span>
+              <span className="sm:hidden">{buttonLabelShort}</span>
               <ArrowRight className="size-4" strokeWidth={2} />
             </>
           )}

@@ -8,6 +8,7 @@ export type WaitlistState = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ALLOWED_SOURCES = new Set(["landing", "android_testing"]);
 
 // In-process rate limiter. The landing runs as a single pm2 process, so a
 // Map is sufficient; no shared store needed (and none should be added).
@@ -49,6 +50,9 @@ export async function joinWaitlist(
     };
   }
 
+  const requestedSource = String(formData.get("source") ?? "landing");
+  const source = ALLOWED_SOURCES.has(requestedSource) ? requestedSource : "landing";
+
   const requestHeaders = await headers();
   const ip = (requestHeaders.get("x-forwarded-for") ?? "unknown")
     .split(",")[0]
@@ -79,7 +83,7 @@ export async function joinWaitlist(
         "content-type": "application/json",
         prefer: "return=minimal",
       },
-      body: JSON.stringify({ email, source: "landing" }),
+      body: JSON.stringify({ email, source }),
     });
 
     // 409 = unique violation: already on the list. Same message either way,

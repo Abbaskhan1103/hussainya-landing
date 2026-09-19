@@ -9,7 +9,7 @@ export const metadata = pageMetadata({
   path: "/terms",
 });
 
-const LAST_UPDATED = "22 May 2026";
+const LAST_UPDATED = "19 September 2026";
 const CONTACT_EMAIL = "support@hussainya.com";
 
 export default function TermsPage() {
@@ -61,149 +61,61 @@ export default function TermsPage() {
             "Post content that is unlawful, defamatory, harassing, hateful, sectarian in a harmful way, or that infringes the rights of others.",
             "Misrepresent yourself as another person, centre, or organisation.",
             "Disrupt, reverse engineer, scrape, or overload the service.",
-            "Use Hussainya to send spam or solicit users for unrelated commercial purposes.",
             "Attempt to access data you are not authorised to view.",
           ]}
         />
       </LegalSection>
 
-      <LegalSection n="III" title="Religious content & guidance">
+      <LegalSection n="III" title="Content & guidance">
         <p className="text-[var(--subtext)]">
-          Hussainya surfaces Islamic content from public sources, including jurisprudence,
-          duas, and aamal references. Some answers are generated with the help of AI models.
-          Content is provided for general informational and educational purposes only and is{" "}
+          Hussainya surfaces Islamic content, including jurisprudence, duas, and aamal
+          references &mdash; some generated with the help of AI &mdash; for general
+          informational and educational purposes only. It is{" "}
           <strong className="text-[var(--text)]">not a substitute</strong> for guidance from
-          a qualified marja&apos;, scholar, or imam. Always verify rulings with a
-          knowledgeable authority before acting on them.
+          a qualified marja&apos;, scholar, or imam; always verify rulings with a knowledgeable
+          authority before acting on them. Prayer times and qibla directions are estimates
+          calculated from your device&apos;s location &mdash; confirm jamaat times with your
+          local centre.
         </p>
       </LegalSection>
 
-      <LegalSection n="IV" title="Centre managers">
-        <p className="text-[var(--subtext)]">
-          If you have been granted a centre manager role, you agree that:
-        </p>
-        <LegalList
-          items={[
-            "You are authorised by the relevant centre to publish information on its behalf.",
-            "Information you publish (programs, contact details, announcements) is accurate, lawful, and respectful.",
-            "You will keep your centre's information up to date and remove or correct content promptly when needed.",
-            "We may remove content or revoke access if a centre's listing is misused or disputed.",
-          ]}
-        />
-      </LegalSection>
-
-      <LegalSection n="V" title="Subscriptions & payments">
-        <LegalList
-          items={[
-            "Some centre management features require a paid subscription, processed by Stripe.",
-            "Fees, billing cycles, and any free trials are shown at checkout.",
-            "Subscriptions auto-renew until cancelled. You can cancel at any time before the next renewal. Access continues to the end of the paid period.",
-            "Except where required by Australian Consumer Law, fees are non-refundable.",
-            "We may change pricing with reasonable notice before your next renewal.",
-          ]}
-        />
-      </LegalSection>
-
-      <LegalSection n="VI" title="Programs, RSVPs & bookings">
-        <p className="text-[var(--subtext)]">
-          Hussainya may show program listings and accept RSVPs or bookings on behalf of
-          centres. The hosting centre is responsible for the program itself, including its
-          scheduling, conduct, capacity, safety, and any associated fees or refunds. We are
-          not a party to the arrangement between you and the centre.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="VII" title="Notifications & prayer times">
-        <p className="text-[var(--subtext)]">
-          Prayer times are calculated using established methods and your device&apos;s
-          location. They are estimates. Confirm with your local centre for jamaat. Push
-          notifications require your permission and may be disabled at any time from your
-          device settings.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="VIII" title="User content">
-        <p className="text-[var(--subtext)]">
-          You retain ownership of content you submit (centre listings, announcements, notes,
-          and similar material). By submitting content, you grant Hussainya a non-exclusive,
-          worldwide, royalty-free licence to host, display, and distribute it within the app
-          for the purpose of operating the service. You are responsible for ensuring you
-          have the right to share what you post.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="IX" title="Intellectual property">
-        <p className="text-[var(--subtext)]">
-          The Hussainya name, logo, software, and design are owned by us or our licensors.
-          You may use the app for its intended personal or centre-management purposes. You
-          may not copy, modify, or redistribute our materials without permission.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="X" title="Third-party services">
-        <p className="text-[var(--subtext)]">
-          Hussainya relies on third-party providers for hosting, payments, notifications,
-          and AI features (including Supabase, DigitalOcean, Cloudflare, Stripe, OneSignal,
-          Anthropic, Google, and OpenAI). Their terms apply to the parts of the service they
-          provide, and outages on their side may affect Hussainya.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="XI" title="Disclaimers">
+      <LegalSection n="IV" title="Disclaimers">
         <p className="text-[var(--subtext)]">
           Hussainya is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo;
-          basis. To the maximum extent permitted by law, we make no warranties about
-          uninterrupted availability, accuracy of third-party content, or fitness for a
-          particular purpose. Nothing in these terms excludes any consumer guarantees you
-          have under Australian Consumer Law that cannot lawfully be excluded.
+          basis, without warranties of any kind, to the maximum extent permitted by law.
+          Nothing in these terms excludes any consumer guarantee you have under Australian
+          Consumer Law that cannot lawfully be excluded.
         </p>
       </LegalSection>
 
-      <LegalSection n="XII" title="Limitation of liability">
+      <LegalSection n="V" title="Liability & indemnity">
         <p className="text-[var(--subtext)]">
-          To the extent permitted by law, Hussainya and its operators are not liable for
-          indirect, incidental, or consequential losses, or for losses arising from content
-          posted by centres or other users. Where liability cannot be excluded, our total
-          liability is limited to the amount you paid us in the 12 months before the claim,
-          or AUD 100, whichever is greater.
+          To the extent permitted by law, we are not liable for indirect or consequential
+          losses. Where liability cannot be excluded, our total liability is limited to the
+          amount you paid us in the 12 months before the claim, or AUD 100, whichever is
+          greater. You agree to indemnify us against claims and reasonable legal costs arising
+          from your breach of these terms or misuse of the service.
         </p>
       </LegalSection>
 
-      <LegalSection n="XIII" title="Indemnity">
+      <LegalSection n="VI" title="Termination">
         <p className="text-[var(--subtext)]">
-          You agree to indemnify Hussainya against claims, losses, and reasonable legal
-          costs arising from your breach of these terms, your misuse of the service, or
-          content you publish.
+          You can stop using Hussainya and delete your account at any time. We may suspend or
+          terminate your access if you breach these terms or if required to do so by law.
         </p>
       </LegalSection>
 
-      <LegalSection n="XIV" title="Termination">
-        <p className="text-[var(--subtext)]">
-          You can stop using Hussainya at any time and delete your account. We may suspend
-          or terminate access if you breach these terms or if required to do so by law.
-          Sections that by their nature should survive termination (intellectual property,
-          disclaimers, limitation of liability, and similar) will continue to apply.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="XV" title="Changes to these terms">
-        <p className="text-[var(--subtext)]">
-          We may update these terms as the service evolves. Material changes will be
-          notified in-app or by email before they take effect. Continued use after changes
-          means you accept the updated terms.
-        </p>
-      </LegalSection>
-
-      <LegalSection n="XVI" title="Governing law">
+      <LegalSection n="VII" title="Governing law">
         <p className="text-[var(--subtext)]">
           These terms are governed by the laws of Victoria, Australia. You and Hussainya
           submit to the non-exclusive jurisdiction of the courts of Victoria.
         </p>
       </LegalSection>
 
-      <LegalSection n="XVII" title="Contact us">
+      <LegalSection n="VIII" title="Changes & contact">
         <p className="text-[var(--subtext)]">
-          For questions about these terms, email{" "}
+          We may update these terms as the service evolves; continued use after a change
+          means you accept it. Questions? Email{" "}
           <LegalLink href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</LegalLink>.
         </p>
       </LegalSection>

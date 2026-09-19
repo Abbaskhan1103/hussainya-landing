@@ -130,3 +130,15 @@ h6 {
   animation: slow-spin 240s linear infinite;
   transform-origin: center;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .slow-spin,
+  .animate-pulse {
+    animation: none;
+  }
+}
