@@ -9,18 +9,18 @@ export const metadata = pageMetadata({
   path: "/privacy",
 });
 
-const LAST_UPDATED = "19 September 2026";
+const LAST_UPDATED = "5 October 2026";
 const CONTACT_EMAIL = "support@hussainya.com";
 
 export default function PrivacyPage() {
   return (
-    <article className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 lg:py-32">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+    <article className="mx-auto max-w-[1280px] px-6 lg:px-10 py-12 md:py-24 lg:py-32">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-10 md:mb-16">
         <div className="lg:col-span-3">
           <div className="eyebrow">§ Legal</div>
         </div>
         <div className="lg:col-span-9">
-          <h1 className="font-[var(--font-lora)] text-5xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-[var(--text)]">
+          <h1 className="font-lora text-4xl sm:text-5xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-[var(--text)]">
             Privacy Policy
           </h1>
           <p className="mt-6 text-sm text-[var(--subtext)]">
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
             platform connecting the Shia Muslim community to Islamic centres, programs, prayer
             times, and ibadah tools. We are bound by the Australian Privacy Principles
             (&ldquo;APPs&rdquo;) in Schedule 1 of the{" "}
-            <em className="font-[var(--font-lora)]">Privacy Act 1988 (Cth)</em>. This policy
+            <em className="font-lora">Privacy Act 1988 (Cth)</em>. This policy
             describes how we collect, hold, use, disclose, secure, and let you access and
             correct your personal information.
           </div>
@@ -94,8 +94,8 @@ export default function PrivacyPage() {
             </>,
             <>
               <strong className="text-[var(--text)]">AI interactions:</strong> when you use
-              AI-assisted features such as jurisprudence or aamal guidance, your queries are
-              sent to third-party AI providers to generate responses.
+              AI-assisted features such as What&apos;s On search, your queries are sent to
+              third-party AI providers to generate responses.
             </>,
           ]}
         />

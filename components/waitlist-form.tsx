@@ -15,10 +15,12 @@ export function WaitlistForm({
   buttonLabel = "Join the waitlist",
   buttonLabelShort = "Join",
   successMessage = "You’re on the list. We’ll write to you when the doors open, inshaAllah.",
+  placeholder = "you@example.com",
 }: {
   id: string;
   className?: string;
   source?: string;
+  placeholder?: string;
   buttonLabel?: string;
   buttonLabelShort?: string;
   successMessage?: string;
@@ -29,14 +31,14 @@ export function WaitlistForm({
     return (
       <div
         className={cn(
-          "flex items-center gap-4 rounded-2xl border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] px-6 py-5",
+          "flex items-start gap-4 rounded-2xl border border-[var(--color-gold)]/40 bg-[var(--color-gold)]/[0.06] px-6 py-5",
           className,
         )}
         role="status"
       >
-        <EightPointStar className="size-5 shrink-0 text-[var(--color-gold)]" />
-        <p className="font-[var(--font-lora)] italic text-lg leading-snug text-[var(--text)]">
-          {successMessage}
+        <EightPointStar className="mt-1 size-5 shrink-0 text-[var(--color-gold)]" />
+        <p className="font-lora italic text-lg leading-snug text-[var(--text)]">
+          {state.message ?? successMessage}
         </p>
       </div>
     );
@@ -54,7 +56,7 @@ export function WaitlistForm({
           name="email"
           required
           autoComplete="email"
-          placeholder="you@example.com"
+          placeholder={placeholder}
           disabled={pending}
           className="min-w-0 flex-1 bg-transparent py-2 text-base text-[var(--text)] placeholder:text-[var(--subtext)]/70 focus:outline-none disabled:opacity-60"
         />

@@ -12,10 +12,10 @@ export function LegalSection({
   return (
     <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 py-10 lg:py-12 border-b border-[var(--border)]">
       <div className="lg:col-span-3 flex items-baseline gap-4 lg:flex-col lg:gap-2">
-        <span className="font-[var(--font-lora)] italic text-3xl text-[var(--color-gold)]">
+        <span className="font-lora italic text-3xl text-[var(--color-gold)]">
           {n}
         </span>
-        <h2 className="font-[var(--font-lora)] text-xl text-[var(--text)] leading-snug">
+        <h2 className="font-lora text-xl text-[var(--text)] leading-snug">
           {title}
         </h2>
       </div>

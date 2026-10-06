@@ -9,18 +9,18 @@ export const metadata = pageMetadata({
   path: "/terms",
 });
 
-const LAST_UPDATED = "19 September 2026";
+const LAST_UPDATED = "5 October 2026";
 const CONTACT_EMAIL = "support@hussainya.com";
 
 export default function TermsPage() {
   return (
-    <article className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 lg:py-32">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+    <article className="mx-auto max-w-[1280px] px-6 lg:px-10 py-12 md:py-24 lg:py-32">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-10 md:mb-16">
         <div className="lg:col-span-3">
           <div className="eyebrow">§ Legal</div>
         </div>
         <div className="lg:col-span-9">
-          <h1 className="font-[var(--font-lora)] text-5xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-[var(--text)]">
+          <h1 className="font-lora text-4xl sm:text-5xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-[var(--text)]">
             Terms &amp; Conditions
           </h1>
           <p className="mt-6 text-sm text-[var(--subtext)]">
@@ -68,14 +68,12 @@ export default function TermsPage() {
 
       <LegalSection n="III" title="Content & guidance">
         <p className="text-[var(--subtext)]">
-          Hussainya surfaces Islamic content, including jurisprudence, duas, and aamal
-          references &mdash; some generated with the help of AI &mdash; for general
-          informational and educational purposes only. It is{" "}
-          <strong className="text-[var(--text)]">not a substitute</strong> for guidance from
-          a qualified marja&apos;, scholar, or imam; always verify rulings with a knowledgeable
-          authority before acting on them. Prayer times and qibla directions are estimates
-          calculated from your device&apos;s location &mdash; confirm jamaat times with your
-          local centre.
+          Tools such as the khums and qadha calculators are aids for general use only. They
+          are <strong className="text-[var(--text)]">not a substitute</strong> for guidance
+          from a qualified marja&apos;, scholar, or imam. Prayer times and qibla directions are
+          estimates calculated from your device&apos;s location &mdash; confirm jamaat times
+          with your local centre. Program details come from centres and can change, and search
+          answers generated with the help of AI may be inaccurate.
         </p>
       </LegalSection>
 

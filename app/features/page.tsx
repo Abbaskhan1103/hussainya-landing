@@ -1,118 +1,114 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   MapPin,
   Phone,
-  Globe,
   Heart,
-  Navigation2,
   Radio,
   CalendarDays,
   Lock,
-  Share2,
   Users,
   Compass,
   CircleDot,
   ListTodo,
   Calculator,
-  Sparkles,
   Search,
   Bell,
   Clock,
+  Moon,
+  PencilLine,
+  LayoutGrid,
   ArrowUpRight,
 } from "lucide-react";
 import { Medallion, HairlineDots } from "@/components/ornaments";
 import { pageMetadata } from "@/lib/seo";
+import { APP_STORE_URL } from "@/lib/links";
 
 export const metadata = pageMetadata({
   title: "Features",
   description:
-    "A look at what's inside Hussainya: centres, programs, the Hijri calendar, and the daily ibadah tools.",
+    "What's in Hussainya: Islamic centres, programs, prayer times, the Hijri calendar, and everyday ibadah tools.",
   path: "/features",
 });
 
 const centreCapabilities = [
-  { Icon: MapPin, title: "Address & directions", body: "Suburb, full address, and one tap to Google Maps." },
-  { Icon: Phone, title: "Contact, in one place", body: "Phone, email, website, Instagram, Facebook, YouTube." },
-  { Icon: Radio, title: "Live indicator", body: "A subtle badge when a centre is broadcasting on YouTube." },
-  { Icon: CalendarDays, title: "Upcoming programs", body: "Each centre's published majalis, classes, and gatherings." },
-  { Icon: Heart, title: "Favourite to follow", body: "Favourited centres feed your calendar and Home search." },
-  { Icon: Navigation2, title: "Find by closeness", body: "Sorted by distance when you allow location; otherwise alphabetically." },
+  { Icon: MapPin, title: "Address & directions", body: "The full address, and one tap to get directions." },
+  { Icon: Phone, title: "Contact details", body: "Phone, email, website, and social links in one place." },
+  { Icon: Radio, title: "Live streams", body: "When a centre goes live on YouTube, watch it in the app." },
+  { Icon: CalendarDays, title: "Programs & notices", body: "Each centre's upcoming programs and latest announcements." },
+  { Icon: Heart, title: "Favourites", body: "Favourite the centres you attend to fill your Programs tab." },
+  { Icon: PencilLine, title: "Suggest an update", body: "Spot something out of date? Send the centre a correction." },
 ];
 
 const ibadahTools = [
+  { Icon: CircleDot, title: "Tasbih", body: "A dhikr counter, including Tasbeeh al-Zahra." },
   {
-    n: "I",
-    Icon: CircleDot,
-    title: "Tasbih",
-    body: "A counter for dhikr, with optional milestone tones so you can keep your eyes closed.",
-  },
-  {
-    n: "II",
     Icon: ListTodo,
-    title: "Qadha tracker",
-    body: "Quietly keep count of missed prayers and chip away at them, day by day.",
+    title: "Qadha",
+    body: "Work out how many prayers you owe, then track them as you make them up.",
   },
-  {
-    n: "III",
-    Icon: Calculator,
-    title: "Khums calculator",
-    body: "Walk through your annual khums with a small, careful calculator that shows its working.",
-  },
-  {
-    n: "IV",
-    Icon: Sparkles,
-    title: "Duas & Aamal",
-    body: "Arabic, transliteration, English, audio, and repeat counts. Today's aamal surfaced automatically.",
-  },
+  { Icon: Calculator, title: "Khums", body: "Work through your yearly khums one step at a time." },
+  { Icon: Compass, title: "Qibla", body: "A compass that points to the Kaaba using your phone's sensors." },
 ];
 
 const homeTiles = [
-  { Icon: Clock, title: "Next prayer", body: "A live countdown to the next salah, with all five times on a single strip." },
-  { Icon: Compass, title: "Qibla", body: "A compass that points to the Kaaba, using your device's sensors when allowed." },
-  { Icon: Sparkles, title: "Today's aamal", body: "Auto-selected from the Hijri date, in your city's timezone." },
-  { Icon: Search, title: "“What's on?”", body: "Ask in plain English. We search your favourited centres' programs and your own events." },
+  {
+    Icon: Moon,
+    title: "Today's date",
+    body: "Hijri and Gregorian, with the occasion if there is one.",
+  },
+  {
+    Icon: Clock,
+    title: "Prayer times",
+    body: "The next prayer and the rest of today's times. Calculated on your phone, so they work offline.",
+  },
+  {
+    Icon: Radio,
+    title: "Live now",
+    body: "Your favourite centres that are streaming right now.",
+  },
+  {
+    Icon: Search,
+    title: "What's On",
+    body: "Ask what's on near you in plain English. Sign in to use it.",
+  },
 ];
 
 export default function FeaturesPage() {
   return (
-    <article className="mx-auto max-w-[1280px] px-6 lg:px-10 py-24 lg:py-32">
+    <article className="mx-auto max-w-[1280px] px-6 lg:px-10 py-12 md:py-24 lg:py-32">
       {/* Hero */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-12 md:mb-20">
         <div className="lg:col-span-3">
-          <div className="eyebrow inline-flex items-center gap-3">
-            <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
-            <span>§ Features · Coming soon</span>
-          </div>
+          <div className="eyebrow">§ Features</div>
         </div>
         <div className="lg:col-span-9">
-          <h1 className="font-[var(--font-lora)] text-5xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-[var(--text)]">
-            What you'll find{" "}
-            <em className="text-[var(--color-gold)]">inside</em>, in plain words.
+          <h1 className="font-lora text-4xl sm:text-5xl md:text-7xl leading-[1.02] tracking-[-0.02em] text-[var(--text)]">
+            What&apos;s in the app.
           </h1>
-          <p className="mt-8 max-w-2xl text-lg text-[var(--subtext)] leading-relaxed">
-            Five small areas that quietly cover most of the practical part of being a Shia Muslim in
-            2026. None of them shout; together they save a lot of group chats and screenshots.
+          <p className="mt-6 md:mt-8 max-w-2xl text-lg text-[var(--subtext)] leading-relaxed">
+            Islamic centres, their programs, prayer times, and a few everyday ibadah tools. On
+            iPhone now, with Android in testing.
           </p>
         </div>
       </div>
 
-      <hr className="border-[var(--border)] mb-24" />
+      <hr className="border-[var(--border)] mb-12 md:mb-24" />
 
       {/* § 01 Centres */}
-      <section className="mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+      <section className="mb-20 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-8 md:mb-12">
           <div className="lg:col-span-3">
             <div className="eyebrow">§ 01</div>
             <div className="eyebrow mt-1">Centres</div>
           </div>
           <div className="lg:col-span-9">
-            <h2 className="font-[var(--font-lora)] text-4xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              Every hussainiya and Islamic centre,{" "}
-              <em className="text-[var(--color-gold)]">on one page each</em>.
+            <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
+              Hussainiyas and Islamic centres across Australia.
             </h2>
             <p className="mt-6 max-w-2xl text-[var(--subtext)] text-lg leading-relaxed">
-              Find a centre near you, learn how to get there, and follow the ones you attend so
-              their programs reach your calendar. No feeds, no ads.
+              Browse by state or search by name. Centre managers keep their own details and
+              programs up to date.
             </p>
           </div>
         </div>
@@ -121,11 +117,11 @@ export default function FeaturesPage() {
           {centreCapabilities.map(({ Icon, title, body }) => (
             <div
               key={title}
-              className="bg-[var(--background)] p-8 lg:p-10 flex flex-col gap-5 min-h-[220px]"
+              className="bg-[var(--background)] p-6 md:p-8 lg:p-10 flex md:flex-col gap-5 md:min-h-[200px]"
             >
-              <Icon className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
+              <Icon className="size-7 shrink-0 text-[var(--color-gold)]" strokeWidth={1.25} />
               <div>
-                <h3 className="font-[var(--font-lora)] text-2xl text-[var(--text)] mb-2">{title}</h3>
+                <h3 className="font-lora text-2xl text-[var(--text)] mb-2">{title}</h3>
                 <p className="text-[var(--subtext)] leading-relaxed text-[15px]">{body}</p>
               </div>
             </div>
@@ -134,123 +130,92 @@ export default function FeaturesPage() {
       </section>
 
       {/* § 02 Programs */}
-      <section className="mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+      <section className="mb-20 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-8 md:mb-12">
           <div className="lg:col-span-3">
             <div className="eyebrow">§ 02</div>
             <div className="eyebrow mt-1">Programs</div>
           </div>
           <div className="lg:col-span-9">
-            <h2 className="font-[var(--font-lora)] text-4xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              Public majalis you can{" "}
-              <em className="text-[var(--color-gold)]">find</em>, private ones you can{" "}
-              <em className="text-[var(--color-gold)]">share</em>.
+            <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
+              Majalis, classes, and gatherings.
             </h2>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="border border-[var(--border)] rounded-2xl p-10 flex flex-col gap-6">
+          <div className="border border-[var(--border)] rounded-2xl p-6 md:p-10 flex flex-col gap-4 md:gap-6">
             <div className="flex items-center gap-4">
               <Users className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
               <div className="eyebrow">From your centres</div>
             </div>
-            <h3 className="font-[var(--font-lora)] text-3xl text-[var(--text)]">
-              Public programs, posted by centres you follow.
+            <h3 className="font-lora text-2xl md:text-3xl text-[var(--text)]">
+              Everything your centres post, by date.
             </h3>
             <p className="text-[var(--subtext)] leading-relaxed">
-              Title, date, time, venue, a poster image if there is one, and a link to book or ask.
-              When a centre is broadcasting on its YouTube, you'll see the live indicator on its
-              page, and that's where the stream lives.
+              RSVP, add a program to your calendar, or register where the centre takes bookings.
+              Times are shown in your own time zone.
             </p>
           </div>
 
-          <div className="border border-[var(--border)] rounded-2xl p-10 flex flex-col gap-6">
+          <div className="border border-[var(--border)] rounded-2xl p-6 md:p-10 flex flex-col gap-4 md:gap-6">
             <div className="flex items-center gap-4">
               <Lock className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
               <div className="eyebrow">Invite-only</div>
             </div>
-            <h3 className="font-[var(--font-lora)] text-3xl text-[var(--text)]">
-              Host a majlis at home, and share a single link.
+            <h3 className="font-lora text-2xl md:text-3xl text-[var(--text)]">
+              Hosting a majlis at home? Share one link.
             </h3>
             <p className="text-[var(--subtext)] leading-relaxed">
-              Create your own program at a favourited centre or at your own address, set it to
-              private, and share the invite link with anyone. They sign in, accept, and it lands in
-              their calendar alongside their centres' programs.
+              Create a private program and send the invite link however you like. Guests sign in,
+              accept, and it shows up with the rest of their programs.
             </p>
-            <div className="pt-4 border-t border-[var(--border)] flex items-start gap-3 text-sm text-[var(--subtext)] leading-relaxed">
-              <Share2 className="size-4 text-[var(--color-gold)] mt-0.5 shrink-0" strokeWidth={1.5} />
-              <span>
-                One unguessable link. Share it by WhatsApp, message, or email, wherever you'd
-                already send it.
-              </span>
-            </div>
           </div>
         </div>
       </section>
 
       {/* § 03 Calendar */}
-      <section className="mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+      <section className="mb-20 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-8 md:mb-12">
           <div className="lg:col-span-3">
             <div className="eyebrow">§ 03</div>
             <div className="eyebrow mt-1">Calendar</div>
           </div>
           <div className="lg:col-span-9">
-            <h2 className="font-[var(--font-lora)] text-4xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              A Hijri month at a glance, with the{" "}
-              <em className="text-[var(--color-gold)]">occasions</em> and{" "}
-              <em className="text-[var(--color-gold)]">programs from the centres you follow</em>.
+            <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
+              The Hijri month, with occasions and programs.
             </h2>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-8 lg:col-start-3 space-y-6 text-[var(--text)] text-lg leading-relaxed">
-            <p>
-              Every cell shows the Gregorian date and its Hijri equivalent. Today is marked in gold.
-              Days of shahadat are tinted red; days of wiladat and Eid are tinted green. Small dots
-              mark the days that have programs: gold for public ones from your favourited centres,
-              indigo for the private ones you've been invited to.
-            </p>
-            <p className="text-[var(--subtext)]">
-              Below the grid: every significant date in the month, then every program from today
-              onwards. If you haven't favourited any centres yet, it nudges you to do so, because
-              that's how the calendar fills up.
+            <p className="mt-6 max-w-2xl text-[var(--subtext)] text-lg leading-relaxed">
+              Each day shows its Gregorian and Hijri date. Shahadat, wiladat, and Eid are marked,
+              and days with programs from your centres stand out at a glance.
             </p>
           </div>
         </div>
       </section>
 
       {/* § 04 Ibadah */}
-      <section className="mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+      <section className="mb-20 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-8 md:mb-12">
           <div className="lg:col-span-3">
             <div className="eyebrow">§ 04</div>
             <div className="eyebrow mt-1">Ibadah</div>
           </div>
           <div className="lg:col-span-9">
-            <h2 className="font-[var(--font-lora)] text-4xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              Four small tools, made to{" "}
-              <em className="text-[var(--color-gold)]">disappear</em> while you use them.
+            <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
+              Four everyday tools.
             </h2>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--border)] border border-[var(--border)] rounded-2xl overflow-hidden">
-          {ibadahTools.map(({ n, Icon, title, body }) => (
+          {ibadahTools.map(({ Icon, title, body }) => (
             <div
               key={title}
-              className="bg-[var(--background)] p-10 lg:p-12 flex flex-col gap-8 min-h-[280px]"
+              className="bg-[var(--background)] p-6 md:p-10 lg:p-12 flex md:flex-col gap-5 md:gap-8 md:min-h-[220px]"
             >
-              <div className="flex items-start justify-between">
-                <span className="font-[var(--font-lora)] text-6xl text-[var(--color-gold)] opacity-30 leading-none">
-                  {n}
-                </span>
-                <Icon className="size-7 text-[var(--color-gold)]" strokeWidth={1.25} />
-              </div>
+              <Icon className="size-7 shrink-0 text-[var(--color-gold)]" strokeWidth={1.25} />
               <div>
-                <h3 className="font-[var(--font-lora)] text-3xl text-[var(--text)] mb-3">{title}</h3>
+                <h3 className="font-lora text-2xl md:text-3xl text-[var(--text)] mb-2 md:mb-3">{title}</h3>
                 <p className="text-[var(--subtext)] leading-relaxed">{body}</p>
               </div>
             </div>
@@ -259,20 +224,19 @@ export default function FeaturesPage() {
       </section>
 
       {/* § 05 Home */}
-      <section className="mb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+      <section className="mb-20 md:mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-10 mb-8 md:mb-12">
           <div className="lg:col-span-3">
             <div className="eyebrow">§ 05</div>
             <div className="eyebrow mt-1">On Home</div>
           </div>
           <div className="lg:col-span-9">
-            <h2 className="font-[var(--font-lora)] text-4xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              The first screen, set to your{" "}
-              <em className="text-[var(--color-gold)]">city</em>.
+            <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
+              Your day, on the first screen.
             </h2>
             <p className="mt-6 max-w-2xl text-[var(--subtext)] text-lg leading-relaxed">
-              Open the app and the day is already laid out: the next prayer, the qibla, today's
-              aamal, and a search bar that understands plain language.
+              Open the app to today&apos;s date and prayer times, any centre that&apos;s live, and
+              one tap to your centres, calendar, and tools.
             </p>
           </div>
         </div>
@@ -281,11 +245,11 @@ export default function FeaturesPage() {
           {homeTiles.map(({ Icon, title, body }) => (
             <div
               key={title}
-              className="bg-[var(--background)] p-8 flex flex-col gap-5 min-h-[220px]"
+              className="bg-[var(--background)] p-6 md:p-8 flex md:flex-col gap-5 md:min-h-[200px]"
             >
-              <Icon className="size-6 text-[var(--color-gold)]" strokeWidth={1.25} />
+              <Icon className="size-6 shrink-0 text-[var(--color-gold)]" strokeWidth={1.25} />
               <div>
-                <h3 className="font-[var(--font-lora)] text-xl text-[var(--text)] mb-2">{title}</h3>
+                <h3 className="font-lora text-xl text-[var(--text)] mb-2">{title}</h3>
                 <p className="text-[var(--subtext)] leading-relaxed text-[14px]">{body}</p>
               </div>
             </div>
@@ -293,70 +257,78 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      {/* Quiet things */}
-      <section className="mb-32">
+      {/* Also */}
+      <section className="mb-20 md:mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-4">
             <div className="eyebrow mb-3">§ Also</div>
-            <h2 className="font-[var(--font-lora)] text-3xl text-[var(--text)]">
-              Small things that matter.
-            </h2>
+            <h2 className="font-lora text-3xl text-[var(--text)]">The details.</h2>
           </div>
           <div className="lg:col-span-7 lg:col-start-6 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 text-[var(--text)]">
             <div className="flex items-start gap-3">
-              <Bell className="size-4 text-[var(--color-gold)] mt-1 shrink-0" strokeWidth={1.5} />
+              <Clock className="size-4 text-[var(--color-gold)] mt-1 shrink-0" strokeWidth={1.5} />
               <p className="text-[15px] leading-relaxed">
-                Notification preferences so you only hear from us when something is yours.
+                Five calculation methods. Use your current location or pick a city.
               </p>
             </div>
             <div className="flex items-start gap-3">
-              <Globe className="size-4 text-[var(--color-gold)] mt-1 shrink-0" strokeWidth={1.5} />
+              <Bell className="size-4 text-[var(--color-gold)] mt-1 shrink-0" strokeWidth={1.5} />
               <p className="text-[15px] leading-relaxed">
-                One city setting drives prayer times, qibla, and today's aamal.
+                A notification when a favourite centre posts a program or goes live. Turn off
+                either.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <LayoutGrid className="size-4 text-[var(--color-gold)] mt-1 shrink-0" strokeWidth={1.5} />
+              <p className="text-[15px] leading-relaxed">
+                Widgets for prayer times, the Hijri date, and today&apos;s programs.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <Heart className="size-4 text-[var(--color-gold)] mt-1 shrink-0" strokeWidth={1.5} />
               <p className="text-[15px] leading-relaxed">
-                Your favourite centres travel with you across web, iOS, and Android.
+                Browse without an account. Sign in with Apple, Google, or email to save
+                favourites and RSVP.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Coming-soon close */}
-      <section className="border-t border-[var(--border)] pt-16">
+      {/* Get the app */}
+      <section className="border-t border-[var(--border)] pt-12 md:pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8">
-            <div className="eyebrow mb-6 inline-flex items-center gap-3">
-              <span className="inline-block size-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
-              <span>§ Launching soon</span>
-            </div>
-            <h2 className="font-[var(--font-lora)] text-4xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              These are the things being polished, right now.
+            <div className="eyebrow mb-6">§ Get the app</div>
+            <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
+              On iPhone now. Android is in testing.
             </h2>
-            <p className="mt-6 max-w-2xl text-[var(--subtext)] text-lg leading-relaxed">
-              The first builds are in the hands of testers. Public release on iOS, Android, and the
-              web follows shortly, inshaAllah.
-            </p>
           </div>
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 flex flex-wrap items-center gap-6">
+            <a href={APP_STORE_URL} className="inline-flex items-center">
+              <Image
+                src="/app-store-badge-black.svg"
+                alt="Download on the App Store"
+                width={120}
+                height={40}
+                className="h-12 w-auto"
+              />
+            </a>
             <Link
-              href="/who-we-are"
-              className="inline-flex items-center gap-2 text-[var(--color-gold)] hover:text-[var(--color-gold-light)] editorial-link"
+              href="/#android-testing"
+              className="inline-flex items-center gap-1.5 text-[var(--color-gold)] hover:text-[var(--color-gold-light)] editorial-link"
             >
-              Read about who's making it
+              Join Android testing
               <ArrowUpRight className="size-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      <div className="mt-24 flex justify-center">
+      <div className="mt-16 md:mt-24 flex justify-center">
         <HairlineDots className="w-40 text-[var(--color-gold)]" />
       </div>
-      <div className="mt-10 flex justify-center">
+      <div className="mt-8 md:mt-10 flex justify-center">
         <Medallion className="w-24 h-24 text-[var(--color-gold)] opacity-50" />
       </div>
     </article>

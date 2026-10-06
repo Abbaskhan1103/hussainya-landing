@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
       { source: "/auth/callback", destination: `${APP_BASE}/auth/callback`, permanent: false },
     ];
   },
+  async headers() {
+    return [
+      {
+        // Apple's spec: no .json extension, but served as application/json.
+        source: "/.well-known/apple-app-site-association",
+        headers: [{ key: "Content-Type", value: "application/json" }],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
