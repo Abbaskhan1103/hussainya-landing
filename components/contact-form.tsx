@@ -1,8 +1,9 @@
 "use client";
 
 import { useActionState } from "react";
-import { LoaderCircle, Send } from "lucide-react";
+import { ChevronDown, LoaderCircle, Send } from "lucide-react";
 import { sendContactMessage, type ContactState } from "@/app/actions";
+import { CONTACT_TOPICS } from "@/lib/contact-topics";
 import { EightPointStar } from "./ornaments";
 
 const initialState: ContactState = { status: "idle" };
@@ -58,6 +59,38 @@ export function ContactForm() {
           className={fieldClass}
           placeholder="you@somewhere.com"
         />
+      </div>
+      <div>
+        <label htmlFor="topic" className="eyebrow block mb-3">
+          Query type
+        </label>
+        <div className="relative">
+          <select
+            id="topic"
+            name="topic"
+            required
+            defaultValue=""
+            disabled={pending}
+            className={`${fieldClass} appearance-none pr-10 cursor-pointer invalid:text-[var(--subtext)]/60`}
+          >
+            <option value="" disabled>
+              Choose one
+            </option>
+            {CONTACT_TOPICS.map((t) => (
+              <option
+                key={t.value}
+                value={t.value}
+                className="bg-[var(--surface)] text-[var(--text)]"
+              >
+                {t.label}
+              </option>
+            ))}
+          </select>
+          <ChevronDown
+            aria-hidden
+            className="pointer-events-none absolute right-1 top-1/2 size-5 -translate-y-1/2 text-[var(--subtext)]"
+          />
+        </div>
       </div>
       <div>
         <label htmlFor="message" className="eyebrow block mb-3">

@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { addAndroidTester } from "@/lib/play-testers";
 import { androidWaitlistConfirmation } from "@/lib/emails";
 import { sendEmail } from "@/lib/send-email";
+import { CONTACT_TOPICS } from "@/lib/contact-topics";
 
 export type WaitlistState = {
   status: "idle" | "success" | "error";
@@ -116,9 +117,13 @@ export async function sendContactMessage(
   const name = String(formData.get("name") ?? "").trim().slice(0, 120);
   const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const message = String(formData.get("message") ?? "").trim();
+  const topic = CONTACT_TOPICS.find((t) => t.value === formData.get("topic"));
 
   if (email.length > 254 || !EMAIL_RE.test(email)) {
     return { status: "error", message: "Add an email address we can reply to." };
+  }
+  if (!topic) {
+    return { status: "error", message: "Choose a query type." };
   }
   if (message.length < 3) {
     return { status: "error", message: "Write a message before sending." };
@@ -134,9 +139,9 @@ export async function sendContactMessage(
   }
 
   const status = await supabaseInsert("feedback", {
-    category: "other",
+    category: topic.category,
     message,
-    metadata: { source: "website_contact", name, email },
+    metadata: { source: "website_contact", topic: topic.value, name, email },
   });
   return status === 0 ? SERVER_ERROR : { status: "success" };
 }
