@@ -84,6 +84,12 @@ export default function TermsPage() {
           Nothing in these terms excludes any consumer guarantee you have under Australian
           Consumer Law that cannot lawfully be excluded.
         </p>
+        <p className="text-[var(--subtext)]">
+          Centre listings are compiled from publicly available information and may be
+          incomplete or out of date. A listing doesn&apos;t mean the centre is affiliated
+          with or endorses Hussainya unless it has confirmed its details. Centres can ask us
+          to correct or remove a listing at any time.
+        </p>
       </LegalSection>
 
       <LegalSection n="V" title="Liability & indemnity">
