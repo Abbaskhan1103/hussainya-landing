@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { EightPointStar } from "./ornaments";
-import { APP_STORE_URL } from "@/lib/links";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links";
 
 const nav = [
   { href: "/features", label: "Features" },
@@ -69,6 +69,15 @@ export function SiteHeader() {
               className="h-10 w-auto"
             />
           </a>
+          <a href={PLAY_STORE_URL} className="hidden lg:inline-flex items-center">
+            <Image
+              src="/google-play-badge.svg"
+              alt="Get it on Google Play"
+              width={180}
+              height={53}
+              className="h-10 w-auto"
+            />
+          </a>
           <button
             className="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-[var(--subtext)] hover:text-[var(--text)]"
             onClick={() => setOpen((v) => !v)}
@@ -103,6 +112,19 @@ export function SiteHeader() {
                 alt="Download on the App Store"
                 width={120}
                 height={40}
+                className="h-12 w-auto"
+              />
+            </a>
+            <a
+              href={PLAY_STORE_URL}
+              onClick={() => setOpen(false)}
+              className="inline-flex self-start"
+            >
+              <Image
+                src="/google-play-badge.svg"
+                alt="Get it on Google Play"
+                width={180}
+                height={53}
                 className="h-12 w-auto"
               />
             </a>

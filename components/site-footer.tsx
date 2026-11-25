@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AppleMark, AndroidMark, EightPointStar } from "./ornaments";
-import { APP_STORE_URL } from "@/lib/links";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links";
 
 export function SiteFooter() {
   return (
@@ -61,7 +61,9 @@ export function SiteFooter() {
             </li>
             <li className="flex items-center gap-3">
               <AndroidMark className="size-3.5 text-[var(--color-gold)]" />
-              Android, in testing
+              <a href={PLAY_STORE_URL} className="editorial-link hover:text-[var(--text)]">
+                Android, Google Play
+              </a>
             </li>
           </ul>
         </div>

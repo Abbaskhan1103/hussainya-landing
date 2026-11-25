@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import {
   MapPin,
@@ -18,11 +17,10 @@ import {
   Moon,
   PencilLine,
   LayoutGrid,
-  ArrowUpRight,
 } from "lucide-react";
 import { Medallion, HairlineDots } from "@/components/ornaments";
 import { pageMetadata } from "@/lib/seo";
-import { APP_STORE_URL } from "@/lib/links";
+import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links";
 
 export const metadata = pageMetadata({
   title: "Features",
@@ -88,7 +86,7 @@ export default function FeaturesPage() {
           </h1>
           <p className="mt-6 md:mt-8 max-w-2xl text-lg text-[var(--subtext)] leading-relaxed">
             Islamic centres, their programs, prayer times, and a few everyday ibadah tools. On
-            iPhone now, with Android in testing.
+            iPhone and Android.
           </p>
         </div>
       </div>
@@ -301,10 +299,10 @@ export default function FeaturesPage() {
           <div className="lg:col-span-8">
             <div className="eyebrow mb-6">§ Get the app</div>
             <h2 className="font-lora text-3xl md:text-5xl leading-[1.05] tracking-tight text-[var(--text)]">
-              On iPhone now. Android is in testing.
+              On iPhone and Android.
             </h2>
           </div>
-          <div className="lg:col-span-4 flex flex-wrap items-center gap-6">
+          <div className="lg:col-span-4 flex flex-wrap items-center gap-4">
             <a href={APP_STORE_URL} className="inline-flex items-center">
               <Image
                 src="/app-store-badge-black.svg"
@@ -314,13 +312,15 @@ export default function FeaturesPage() {
                 className="h-12 w-auto"
               />
             </a>
-            <Link
-              href="/#android-testing"
-              className="inline-flex items-center gap-1.5 text-[var(--color-gold)] hover:text-[var(--color-gold-light)] editorial-link"
-            >
-              Join Android testing
-              <ArrowUpRight className="size-4" />
-            </Link>
+            <a href={PLAY_STORE_URL} className="inline-flex items-center">
+              <Image
+                src="/google-play-badge.svg"
+                alt="Get it on Google Play"
+                width={180}
+                height={53}
+                className="h-12 w-auto"
+              />
+            </a>
           </div>
         </div>
       </section>
