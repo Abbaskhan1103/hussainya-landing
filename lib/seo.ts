@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 export const SITE_URL = "https://hussainya.com";
 export const SITE_NAME = "Hussainya";
 // The title and description are what a search result shows, so they say what
-// the app is in the words people search with, and lead with the name.
+// the app is in the words people search with, and lead with the name. Keep the
+// description to 160 characters: Bing reports anything longer as an error.
 export const DEFAULT_TITLE = "Hussainya: Shia prayer times, Islamic centres and majlis programs";
 export const DEFAULT_DESCRIPTION =
-  "A free app for Shia Muslims in Australia: prayer times, the Hijri calendar, Islamic centres near you, majlis programs, qibla, tasbih and khums. On iPhone and Android.";
+  "A free app for Shia Muslims in Australia: prayer times, the Hijri calendar, Islamic centres near you, majlis programs, qibla and khums. iPhone and Android.";
 
 // Search engines may index the site unless ALLOW_INDEXING=false is set at
 // build time, which is for a staging copy that must stay out of results. The
