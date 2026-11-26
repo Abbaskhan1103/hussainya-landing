@@ -153,3 +153,365 @@ h6 {
     animation: none;
   }
 }
+
+/* ── The year: the home page opener (components/year-opener.tsx) ──────────
+   Layout here is shared by all three modes, so nothing jumps when the script
+   takes over: the panel sits where the needle will be drawn. The script only
+   refines the custom properties (needle height, panel width, type sizes). */
+
+:root {
+  --header-h: 4rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --header-h: 5rem;
+  }
+}
+
+.year {
+  position: relative;
+  --year-left: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .year {
+    --year-left: max(2.5rem, calc((100vw - 1280px) / 2 + 2.5rem));
+  }
+}
+.year[data-mode="live"] {
+  height: calc((100svh - var(--header-h)) * var(--year-len, 1));
+}
+
+.year-stage {
+  position: relative;
+  min-height: calc(100svh - var(--header-h));
+  overflow: hidden;
+}
+.year[data-mode] .year-stage {
+  height: calc(100svh - var(--header-h));
+}
+.year[data-mode="live"] .year-stage {
+  position: sticky;
+  top: var(--header-h);
+}
+.year canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.year-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem var(--year-left) 0;
+}
+.year-under {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.year-stack {
+  display: grid;
+}
+.year-stack > * {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+/* Today and the app's three parts: the stops the ring turns through. */
+.year-tabs {
+  display: none;
+}
+.year[data-mode="live"] .year-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.4rem;
+}
+.year-tabs button {
+  padding: 0.2rem 0 0.3rem;
+  border-bottom: 2px solid transparent;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--subtext);
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+.year-tabs button:hover {
+  color: var(--text);
+}
+.year-tabs button[aria-current] {
+  border-bottom-color: var(--year-accent, var(--color-gold));
+  color: var(--text);
+}
+@media (min-width: 900px) {
+  .year-panel {
+    position: absolute;
+    inset: 0 auto 0 var(--year-left);
+    display: block;
+    width: var(--year-panel, 30rem);
+    padding: 0;
+  }
+  .year-top {
+    position: absolute;
+    inset: auto 0 calc(100% - var(--year-needle, 52%) + 16px);
+  }
+  .year-under {
+    position: absolute;
+    inset: calc(var(--year-needle, 52%) + 22px) 0 auto;
+  }
+}
+
+.year-kick {
+  margin-bottom: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--subtext);
+}
+.year-date {
+  font-family: var(--font-lora);
+  font-weight: 500;
+  font-size: var(--year-date, clamp(1.6rem, 6.4vw, 3.5rem));
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: var(--text);
+}
+.year-date em {
+  font-style: normal;
+  color: var(--year-accent, var(--color-gold));
+}
+.year-sig {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--subtext);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.year-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.year-body:not([data-on]) {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.year-body h1,
+.year-body h2 {
+  font-weight: 500;
+  font-size: var(--year-title, clamp(1.4rem, 3vw, 2.25rem));
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  color: var(--text);
+}
+.year-body p {
+  max-width: 31em;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--subtext);
+}
+.year-body h2 {
+  font-size: calc(var(--year-title, clamp(1.4rem, 3vw, 2.25rem)) * 1.35);
+  line-height: 1.02;
+}
+.year-body .year-occasion,
+.year-static .year-occasion {
+  font-family: var(--font-lora);
+  font-size: 1.125rem;
+  line-height: 1.3;
+  color: var(--year-accent, var(--color-gold));
+}
+.year-body .year-count {
+  font-size: 0.875rem;
+}
+.year-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+.year-badges img {
+  width: auto;
+  height: 40px;
+}
+@media (min-width: 900px) {
+  .year-badges img {
+    height: 48px;
+  }
+}
+/* A short phone screen: the ring needs the room more than the second line does. */
+.year[data-cramped] .year-body[data-stop="0"] p {
+  display: none;
+}
+
+.year-hub {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text);
+  pointer-events: none;
+}
+.year[data-mode] .year-hub {
+  display: flex;
+}
+.year-hub b {
+  font-family: var(--font-lora);
+  font-weight: 500;
+  font-size: var(--year-hub, 4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.year-hub span {
+  font-family: var(--font-amiri), "Geeza Pro", serif;
+  font-size: calc(var(--year-hub, 4rem) * 0.42);
+  line-height: 1.2;
+  color: var(--year-accent, var(--color-gold));
+}
+.year-ar {
+  position: absolute;
+  right: 0;
+  bottom: 8%;
+  left: 0;
+  font-family: var(--font-amiri), "Geeza Pro", serif;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--text);
+  opacity: 0;
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .year-ar {
+    top: 50%;
+    right: var(--year-left);
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+    text-align: right;
+  }
+}
+
+.year-legend,
+.year-cue {
+  display: none;
+}
+.year[data-mode="live"] .year-cue {
+  position: absolute;
+  right: 0;
+  bottom: 0.9rem;
+  left: 0;
+  display: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--subtext);
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .year[data-mode] .year-legend {
+    position: absolute;
+    bottom: 1.25rem;
+    left: var(--year-left);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--subtext);
+  }
+  .year-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+  }
+  .year-key-gold,
+  .year-key-ring {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .year-key-gold {
+    background: var(--color-gold);
+  }
+  .year-key-ring {
+    border: 1.5px solid var(--text);
+  }
+  .year-key-bar {
+    width: 2px;
+    height: 12px;
+    background: var(--text);
+    opacity: 0.6;
+  }
+  .year[data-mode="live"] .year-cue {
+    right: var(--year-left);
+    bottom: 1.25rem;
+    left: auto;
+    display: block;
+    text-align: right;
+  }
+}
+
+/* The opener carries its own store badges, so the header's stand down until
+   the visitor has scrolled past it. The script sets data-year-past. */
+.header-store {
+  transition:
+    opacity 200ms ease,
+    visibility 200ms;
+}
+html:has(.year):not([data-year-past]) .header-store {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* The stops as plain text, shown whenever the ring is not driving the page. */
+.year-static {
+  display: grid;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+.year[data-mode="live"] .year-static {
+  display: none;
+}
+.year-static h2 {
+  margin: 0 0 0.4rem;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text);
+}
+.year-static p {
+  line-height: 1.55;
+  color: var(--subtext);
+}
+.year-static .year-occasion {
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  .year-static {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .year-static {
+    padding-inline: 2.5rem;
+  }
+}

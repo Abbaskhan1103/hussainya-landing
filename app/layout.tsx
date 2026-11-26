@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Lora, Nunito } from "next/font/google";
+import { Amiri, Lora, Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
@@ -21,6 +21,14 @@ const lora = Lora({
 const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-nunito",
+  display: "swap",
+});
+
+// Arabic month names and numerals on the home page's year ring.
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-amiri",
   display: "swap",
 });
 
@@ -85,7 +93,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${lora.variable} ${nunito.variable}`}
+      className={`${lora.variable} ${nunito.variable} ${amiri.variable}`}
     >
       <body className="min-h-svh flex flex-col antialiased">
         <script

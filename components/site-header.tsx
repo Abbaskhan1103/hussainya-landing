@@ -60,7 +60,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <a href={APP_STORE_URL} className="hidden md:inline-flex items-center">
+          <a href={APP_STORE_URL} className="header-store hidden md:inline-flex items-center">
             <Image
               src="/app-store-badge-black.svg"
               alt="Download on the App Store"
@@ -69,7 +69,7 @@ export function SiteHeader() {
               className="h-10 w-auto"
             />
           </a>
-          <a href={PLAY_STORE_URL} className="hidden lg:inline-flex items-center">
+          <a href={PLAY_STORE_URL} className="header-store hidden lg:inline-flex items-center">
             <Image
               src="/google-play-badge.svg"
               alt="Get it on Google Play"
