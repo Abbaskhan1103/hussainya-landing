@@ -2,9 +2,9 @@ import { Medallion } from "@/components/ornaments";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "About",
+  title: "About Hussainya, an app for Shia community life",
   description:
-    "Why Hussainya exists and the intention behind it: a quiet companion for Shia life, built in the spirit of khidmah.",
+    "Why Hussainya exists: one quiet place for finding your nearest centre, attending a majlis and checking prayer times, built in the spirit of khidmah.",
   path: "/about",
 });
 

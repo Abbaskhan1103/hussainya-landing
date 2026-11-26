@@ -43,6 +43,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/faq" className="editorial-link hover:text-[var(--text)]">
+                Questions
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="editorial-link hover:text-[var(--text)]">
                 Contact
               </Link>

@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Who we are",
   description:
-    "A small team and three working principles: reverence first, verified sources, and privacy by default.",
+    "The small team behind Hussainya and the three principles they work by: reverence first, verified sources, and privacy by default.",
   path: "/who-we-are",
 });
 

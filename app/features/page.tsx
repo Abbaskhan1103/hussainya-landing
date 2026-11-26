@@ -23,9 +23,9 @@ import { pageMetadata } from "@/lib/seo";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links";
 
 export const metadata = pageMetadata({
-  title: "Features",
+  title: "Features: prayer times, qibla, tasbih, khums and centres",
   description:
-    "What's in Hussainya: Islamic centres, programs, prayer times, the Hijri calendar, and everyday ibadah tools.",
+    "Everything in Hussainya: Shia prayer times, the Hijri calendar, Islamic centres across Australia, majlis programs and live streams, qibla, tasbih and khums.",
   path: "/features",
 });
 

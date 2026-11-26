@@ -4,13 +4,16 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { APP_STORE_ID } from "@/lib/links";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_TITLE,
+  INDEXABLE,
   OPEN_GRAPH_BASE,
   SITE_NAME,
   SITE_URL,
 } from "@/lib/seo";
+import { SITE_GRAPH, jsonLd } from "@/lib/structured-data";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -32,9 +35,10 @@ const amiri = Amiri({
   display: "swap",
 });
 
-// Same switch as app/robots.ts: until ALLOW_INDEXING=true is set at build
-// time, every page also carries a noindex meta tag as a second guard.
-const allowIndexing = process.env.ALLOW_INDEXING === "true";
+// Ownership tokens from Google Search Console and Bing Webmaster Tools. Each
+// is optional: the tag is only written once its variable is set.
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
+const bingVerification = process.env.BING_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -44,6 +48,15 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   applicationName: SITE_NAME,
+  publisher: SITE_NAME,
+  // iPhone Safari offers the App Store listing in a banner at the top of the page.
+  itunes: { appId: APP_STORE_ID },
+  ...((googleVerification || bingVerification) && {
+    verification: {
+      ...(googleVerification && { google: googleVerification }),
+      ...(bingVerification && { other: { "msvalidate.01": bingVerification } }),
+    },
+  }),
   openGraph: {
     ...OPEN_GRAPH_BASE,
     url: "/",
@@ -51,31 +64,10 @@ export const metadata: Metadata = {
     description: DEFAULT_DESCRIPTION,
   },
   twitter: { card: "summary_large_image" },
-  ...(allowIndexing ? {} : { robots: { index: false, follow: false } }),
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/android-chrome-512x512.png`,
-      },
-      email: "support@hussainya.com",
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-  ],
+  // Same switch as app/robots.ts: a hidden build also carries noindex on every page.
+  robots: INDEXABLE
+    ? { index: true, follow: true, googleBot: { "max-snippet": -1, "max-image-preview": "large" } }
+    : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {
@@ -98,7 +90,7 @@ export default function RootLayout({
       <body className="min-h-svh flex flex-col antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(SITE_GRAPH) }}
         />
         <ThemeProvider>
           <SiteHeader />

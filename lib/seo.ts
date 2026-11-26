@@ -2,9 +2,18 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://hussainya.com";
 export const SITE_NAME = "Hussainya";
-export const DEFAULT_TITLE = "Hussainya, a digital home for the Ahl al-Bayt community";
+// The title and description are what a search result shows, so they say what
+// the app is in the words people search with, and lead with the name.
+export const DEFAULT_TITLE = "Hussainya: Shia prayer times, Islamic centres and majlis programs";
 export const DEFAULT_DESCRIPTION =
-  "Centres, programs, prayer times, qibla, and the daily rhythm of ibadah. Gathered with intention for the Shia community.";
+  "A free app for Shia Muslims in Australia: prayer times, the Hijri calendar, Islamic centres near you, majlis programs, qibla, tasbih and khums. On iPhone and Android.";
+
+// Search engines may index the site unless ALLOW_INDEXING=false is set at
+// build time, which is for a staging copy that must stay out of results. The
+// default used to be the other way round, and the live site sat hidden behind
+// "Disallow: /" and a noindex tag long after launch because nobody set the
+// variable. robots.ts and the robots meta tag in layout.tsx both read this.
+export const INDEXABLE = process.env.ALLOW_INDEXING !== "false";
 
 // The images entry points at the generated app/opengraph-image.tsx route.
 // It must live here, not only in the file convention: page-level openGraph

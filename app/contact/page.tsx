@@ -3,9 +3,9 @@ import { pageMetadata } from "@/lib/seo";
 import { ContactForm } from "@/components/contact-form";
 
 export const metadata = pageMetadata({
-  title: "Contact",
+  title: "Contact Hussainya",
   description:
-    "Questions, feedback, or a centre to add? Write to the Hussainya team. We read everything.",
+    "Questions, feedback, or a hussainiya or Islamic centre to add? Write to the Hussainya team at support@hussainya.com. We read every message.",
   path: "/contact",
 });
 

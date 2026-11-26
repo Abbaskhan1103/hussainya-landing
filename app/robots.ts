@@ -1,15 +1,32 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/seo";
+import { INDEXABLE, SITE_URL } from "@/lib/seo";
 
-// Pre-launch, the whole site stays out of search engines. To go public, set
-// ALLOW_INDEXING=true in .env.local on the droplet and redeploy; the robots
-// meta tag in app/layout.tsx keys off the same switch.
+// Crawlers that feed answer engines and assistants. "*" already admits them;
+// naming them puts it on record that they may read and quote the site.
+const ANSWER_ENGINES = [
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "ClaudeBot",
+  "Claude-SearchBot",
+  "Claude-User",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Applebot-Extended",
+  "CCBot",
+];
+
+// See INDEXABLE in lib/seo.ts for the one switch that hides the whole site.
 export default function robots(): MetadataRoute.Robots {
-  if (process.env.ALLOW_INDEXING !== "true") {
+  if (!INDEXABLE) {
     return { rules: { userAgent: "*", disallow: "/" } };
   }
   return {
-    rules: { userAgent: "*", allow: "/" },
+    rules: [
+      { userAgent: "*", allow: "/" },
+      { userAgent: ANSWER_ENGINES, allow: "/" },
+    ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

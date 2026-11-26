@@ -862,7 +862,10 @@ export function YearOpener({ counts, generatedAt }: { counts: DayCounts; generat
             <p className="year-sig" aria-hidden />
             <div className="year-body" data-stop="0" data-on>
               <h1>A digital home for the Ahl al-Bayt community.</h1>
-              <p>Centres, programs, prayer times and qibla for the year ahead, in one app.</p>
+              <p>
+                Hussainya is a free app for the Shia community: Islamic centres, majlis programs, prayer times
+                and qibla, in one place.
+              </p>
               <StoreBadges />
             </div>
             {stops.map((stop, i) => (
