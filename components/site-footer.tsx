@@ -1,6 +1,12 @@
 import Link from "next/link";
-import { AppleMark, AndroidMark, EightPointStar } from "./ornaments";
-import { APP_STORE_URL, PLAY_STORE_URL } from "@/lib/links";
+import { AppleMark, AndroidMark, EightPointStar, InstagramMark } from "./ornaments";
+import {
+  APP_STORE_URL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  MAKER_URL,
+  PLAY_STORE_URL,
+} from "@/lib/links";
 
 export function SiteFooter() {
   return (
@@ -59,15 +65,29 @@ export function SiteFooter() {
           <div className="eyebrow mb-4">Get the app</div>
           <ul className="space-y-3 text-sm text-[var(--subtext)]">
             <li className="flex items-center gap-3">
-              <AppleMark className="size-3.5 text-[var(--color-gold)]" />
+              <AppleMark className="size-3.5 shrink-0 text-[var(--color-gold)]" />
               <a href={APP_STORE_URL} className="editorial-link hover:text-[var(--text)]">
                 iOS, App Store
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <AndroidMark className="size-3.5 text-[var(--color-gold)]" />
+              <AndroidMark className="size-3.5 shrink-0 text-[var(--color-gold)]" />
               <a href={PLAY_STORE_URL} className="editorial-link hover:text-[var(--text)]">
                 Android, Google Play
+              </a>
+            </li>
+          </ul>
+
+          <div className="eyebrow mt-8 mb-4">Follow</div>
+          <ul className="space-y-3 text-sm text-[var(--subtext)]">
+            <li className="flex items-center gap-3">
+              <InstagramMark className="size-3.5 shrink-0 text-[var(--color-gold)]" />
+              <a
+                href={INSTAGRAM_URL}
+                rel="me"
+                className="editorial-link hover:text-[var(--text)]"
+              >
+                Instagram<span className="hidden sm:inline">, @{INSTAGRAM_HANDLE}</span>
               </a>
             </li>
           </ul>
@@ -76,7 +96,16 @@ export function SiteFooter() {
 
       <div className="border-t border-[var(--border)]">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-10 py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--subtext)]">
-          <span>© {new Date().getFullYear()} Hussainya. All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} Hussainya. All rights reserved.{" "}
+            <span className="whitespace-nowrap">
+              Built by{" "}
+              <a href={MAKER_URL} className="hover:text-[var(--text)] editorial-link">
+                Abbas Ali Khan
+              </a>
+              .
+            </span>
+          </span>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-[var(--text)] editorial-link">
               Privacy

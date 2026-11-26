@@ -77,9 +77,4 @@ export const FAQS: readonly Faq[] = [
     answer:
       "A hussainiya, also written husayniyya or hussainia, is a hall where Shia Muslims gather for majalis and commemorations, above all in Muharram to remember Imam Husayn (AS). The app takes its name from it.",
   },
-  {
-    question: "Who makes Hussainya?",
-    answer:
-      "A small, distributed group of engineers, designers and community members who work on it in the evenings and at weekends, in the spirit of khidmah. You can reach them at support@hussainya.com.",
-  },
 ];
